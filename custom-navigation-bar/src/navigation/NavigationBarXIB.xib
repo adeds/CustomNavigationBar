@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="custom_navigation_bar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBarController" customModule="custom_navigation_bar" customModuleProvider="target">
             <connections>
                 <outlet property="leftButton" destination="unR-Ml-tWu" id="ZvL-cz-0O0"/>
                 <outlet property="rightFirstButton" destination="1pZ-C9-GhD" id="wYg-bM-9oa"/>
@@ -36,6 +34,9 @@
                         <constraint firstAttribute="width" constant="60" id="FWN-OJ-XcZ"/>
                     </constraints>
                     <state key="normal" image="secure-cloud-50"/>
+                    <connections>
+                        <action selector="cloudAction:" destination="-1" eventType="touchUpInside" id="yvv-6p-cOW"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Navigation Bar Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shB-5G-YQw">
                     <rect key="frame" x="60" y="12" width="320" height="23"/>
@@ -44,6 +45,16 @@
                     <color key="textColor" red="0.16862745100000001" green="0.2274509804" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-C9-GhD">
+                    <rect key="frame" x="380" y="0.0" width="40" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="HuR-n1-GZF"/>
+                    </constraints>
+                    <state key="normal" image="sw-rebel-48"/>
+                    <connections>
+                        <action selector="redAction:" destination="-1" eventType="touchUpInside" id="6MM-hZ-70t"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFB-fL-7aq">
                     <rect key="frame" x="420" y="0.0" width="40" height="47"/>
                     <accessibility key="accessibilityConfiguration" identifier="topBarNavigation_checkmarkBtn"/>
@@ -51,15 +62,12 @@
                         <constraint firstAttribute="width" constant="40" id="PxP-dL-U1J"/>
                     </constraints>
                     <state key="normal" image="sw-empire-48"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-C9-GhD">
-                    <rect key="frame" x="380" y="0.0" width="40" height="47"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="HuR-n1-GZF"/>
-                    </constraints>
-                    <state key="normal" image="sw-rebel-48"/>
+                    <connections>
+                        <action selector="ballAction:" destination="-1" eventType="touchUpInside" id="3xl-jH-lsn"/>
+                    </connections>
                 </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="wpF-P1-aoN"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="QFB-fL-7aq" firstAttribute="top" secondItem="AB3-JX-r91" secondAttribute="top" id="75i-aU-R99"/>
@@ -82,7 +90,6 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="wpF-P1-aoN"/>
             <point key="canvasLocation" x="114.49275362318842" y="46.540178571428569"/>
         </view>
     </objects>

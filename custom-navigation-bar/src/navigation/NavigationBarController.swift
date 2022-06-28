@@ -1,9 +1,9 @@
 import Foundation
 import UIKit
 
-final class NavigationBar: UIView {
+final class NavigationBarController: UIView {
     
-    private static let NIB_NAME = "NavigationBar"
+    private static let NIB_NAME = "NavigationBarXIB"
     
     @IBOutlet private var view: UIView!
     @IBOutlet private weak var leftButton: UIButton!
@@ -35,12 +35,21 @@ final class NavigationBar: UIView {
         }
     }
     
+    var isRightSecondButtonEnabled: Bool {
+        set {
+            rightSecondButton.isEnabled = newValue
+        }
+        get {
+            return rightSecondButton.isEnabled
+        }
+    }
+    
     override func awakeFromNib() {
         initWithNib()
     }
     
     private func initWithNib() {
-        Bundle.main.loadNibNamed(NavigationBar.NIB_NAME, owner: self, options: nil)
+        Bundle.main.loadNibNamed(NavigationBarController.NIB_NAME, owner: self, options: nil)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         setupLayout()
@@ -55,5 +64,14 @@ final class NavigationBar: UIView {
                 view.trailingAnchor.constraint(equalTo: trailingAnchor),
             ]
         )
+    }
+    @IBAction func cloudAction(_ sender: UIButton) {
+        print("cloud clicked")
+    }
+    @IBAction func redAction(_ sender: UIButton) {
+        print("red clicked")
+    }
+    @IBAction func ballAction(_ sender: UIButton) {
+        print("ball clicked")
     }
 }
